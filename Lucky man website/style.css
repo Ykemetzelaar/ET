@@ -1,0 +1,325 @@
+/* Algemene instellingen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body en achtergrond */
+body {
+    background-color: #1f1f1f;
+    color: #f7f7f7;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+    background: url('clover-background.jpg') no-repeat center center/cover;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.overlay {
+    z-index: 2;
+    padding: 120px 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #66ff66; /* Groene tint voor geluksgevoel */
+}
+p {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #aaffaa; /* Lichtere groene tint voor subtiele sfeer */
+}
+
+#ctaButton {
+    background-color: #2a7b2f;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ctaButton:hover {
+    background-color: #66cc66;
+    transform: scale(1.1);
+}
+
+/* Klavertje vier decoratie */
+.hero::after {
+    content: '🍀';
+    font-size: 7rem;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #66ff66;
+    z-index: 1;
+    animation: spin 8s infinite linear;
+}
+
+/* About Section */
+#about {
+    background-color: #232323;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 3.5rem;
+    color: #66ff66; /* Groene tinten voor consistentie */
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.about-text {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: left;
+    color: #ddd;
+}
+
+.photo {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo img {
+    width: 512px;
+    height: 512px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Fame Section */
+#fame {
+    background-color: #333;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#fame h2 {
+    font-size: 3.5rem;
+    color: #66ff66; /* Groene tinten voor consistentie */
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+#fame p {
+    font-size: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    color: #ddd;
+    line-height: 1.8;
+}
+
+/* Origin Section */
+#origin {
+    background-color: #444;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#origin h2 {
+    font-size: 3.5rem;
+    color: #66ff66; /* Groene tinten voor consistentie */
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+#origin p {
+    font-size: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #ddd;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #777;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Animatie voor het klavertje vier */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsieve stijl */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+}
+
+.hero {
+    position: relative;
+    background: url('path_to_hero_image.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.hero button {
+    background-color: #2a7b2f;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: #66cc66;
+}
+
+/* AI Model Section */
+.ai-section {
+    background-color: #111111;  /* Donkergrijze achtergrond voor duidelijk onderscheid */
+    color: #ffffff;             /* Witte tekst voor goede leesbaarheid */
+    text-align: center;
+    padding: 80px 20px;         /* Extra ruimte rondom de sectie voor ademruimte */
+    margin-top: 60px;           /* Ruimte boven de sectie om het visueel los te maken */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 5px solid #66ff66;  /* Groene lijn bovenaan voor visuele scheiding */
+}
+
+.ai-section h2 {
+    font-size: 3rem;
+    color: #66ff66;  /* Groene kleur passend bij het thema */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.ai-section p {
+    font-size: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    color: #ddd;
+    line-height: 1.8;
+}
+
+.ai-section button {
+    background-color: #2a7b2f;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-section button:hover {
+    background-color: #66cc66;
+    transform: scale(1.1);
+}
+
+#webcam-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#label-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#webcam-container canvas {
+    border: 2px solid #66ff66;
+    border-radius: 10px;
+}
+.iframe-container {
+    width: 100%;
+    max-width: 800px; /* Je kunt de maximale breedte aanpassen naar wens */
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 56.25%; /* Dit geeft een 16:9 aspect ratio (9/16 = 0.5625 = 56.25%) */
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

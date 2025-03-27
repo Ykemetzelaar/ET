@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welkom bij Lucky Man, de meester van geluk en chaos.">
+    <title>Lucky Man - The Clover King</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="overlay">
+            <h1>Lucky Man</h1>
+            <p>De Meester van Geluk en Chaos</p>
+            <button id="ctaButton">Ontdek Zijn Geheimen</button>
+        </div>
+    </section>
+    <div class="iframe-container">
+        <div class="sketchfab-embed-wrapper"> <iframe title="_tmp_tmpfa6kwes08f04b2813b771c09d65f8efdb588fd4a" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/5faa28e1c7d54b1bb3fd8f5781ec4870/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/tmp-tmpfa6kwes08f04b2813b771c09d65f8efdb588fd4a-5faa28e1c7d54b1bb3fd8f5781ec4870?utm_medium=embed&utm_campaign=share-popup&utm_content=5faa28e1c7d54b1bb3fd8f5781ec4870" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> _tmp_tmpfa6kwes08f04b2813b771c09d65f8efdb588fd4a </a> by <a href="https://sketchfab.com/ykemet03?utm_medium=embed&utm_campaign=share-popup&utm_content=5faa28e1c7d54b1bb3fd8f5781ec4870" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> ykemet03 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=5faa28e1c7d54b1bb3fd8f5781ec4870" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+    </div>
+    <section id="about">
+        <div class="content">
+            <h2>Wie is Lucky Man?</h2>
+            <div class="about-text">
+                <p>Lucky Man, alias The Clover King, is een mysterieuze en excentrieke meester van geluk. Met zijn
+                    groene pak en klavertjes vier weet hij altijd de perfecte deal te sluiten en zijn tegenstanders
+                    achter te laten met niets. Niemand weet precies hoe, maar geluk lijkt altijd aan zijn zijde te
+                    staan.</p>
+                <div class="photo">
+                    <img src="image.jpg" alt="Lucky Man" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fame">
+        <div class="content">
+            <h2>Waar is Lucky Man bekend om?</h2>
+            <p>Lucky Man is beroemd geworden door zijn vermogen om met slechts een glimlach de uitkomst van elk avontuur
+                te beïnvloeden. Zijn charme, geluk, en speelse houding hebben hem een legende gemaakt in de wereld van
+                gokken, kaarten, en verborgen schatten.</p>
+            <p>Hij staat bekend om mysterieuze verdwijntrucs, strategische gokpartijen en het creëren van chaos waar hij
+                maar wil. Zijn vermogen om altijd te winnen is zowel bewonderenswaardig als beangstigend.</p>
+        </div>
+    </section>
+    <section id="origin">
+        <div class="content">
+            <h2>Hoe kreeg Lucky Man zijn krachten?</h2>
+            <p>Het verhaal van Lucky Man begint in een donkere steeg in Dublin, waar hij als jongen zonder ouders
+                overleefde. Op een dag, terwijl hij een verlaten casino verkende, ontdekte hij een oude, mysterieuze
+                clover amulet. Toen hij het oppakte, voelde hij een stroom van energie door zijn lichaam razen, en hij
+                wist dat hij iets bijzonders in handen had. Dit was geen normaal amulet – het was een symbool van het
+                ultieme geluk, met de kracht om de toekomst te beïnvloeden en chaos te creëren.</p>
+            <p>Vanaf dat moment begon Lucky Man zijn krachten te ontwikkelen. Elke beslissing die hij nam, elke gok die
+                hij plaatste, leek altijd in zijn voordeel uit te pakken. Wat begon als een speelse zoektocht naar
+                rijkdom, veranderde al snel in een levenslange missie om de wereld te veranderen met niets anders dan
+                zijn geluk. Maar met zijn krachten kwam ook verantwoordelijkheid – en zoals elke ware schurk wist Lucky
+                Man dat geluk een dubbelzijdig zwaard was. Zijn avonturen zouden niet altijd zonder gevolgen blijven,
+                maar hij was vastbesloten om te spelen met de regels van het lot, zonder ooit te verliezen.</p>
+        </div>
+    </section>
+
+    <!-- AI Model Section -->
+    <section id="ai-model" class="ai-section">
+        <div class="content">
+            <h2>Teachable Machine AI Model</h2>
+            <p>Laat een blikje zien en ontdek welk object het AI-model herkent! Het model voorspelt met behulp van de webcam wat geluk voor jou in petto heeft.</p>
+            <button type="button" onclick="init()">Start</button>
+            <div id="webcam-container"></div>
+            <div id="label-container"></div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+        const URL = "./tm-my-image-model/";
+
+        let model, webcam, labelContainer, maxPredictions;
+
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            const flip = true;
+            webcam = new tmImage.Webcam(300, 300, flip);
+            await webcam.setup();
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < maxPredictions; i++) {
+                labelContainer.appendChild(document.createElement("div"));
+            }
+        }
+
+        async function loop() {
+            webcam.update();
+            await predict();
+            window.requestAnimationFrame(loop);
+        }
+
+        async function predict() {
+            const prediction = await model.predict(webcam.canvas);
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction =
+                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+    </script>
+    
+
+    <footer>
+        <p>&copy; 2025 Lucky Man - The Clover King. Alle rechten voorbehouden.</p>
+    </footer>
+</body>
+
+</html>
